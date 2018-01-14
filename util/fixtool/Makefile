@@ -6,11 +6,12 @@
 #  update : 95/12/15				 	  #
 # ------------------------------------------------------- #
 BBSHOME=../../../
+BBSSRC=../../
 
 # For FreeBSD
 CC	= gcc
-CFLAGS	= -O2 -DBSD44 -pipe -fomit-frame-pointer -I$(BBSHOME)/src/include -I$(BBSHOME)/src/WD -D_BBS_UTIL_C_
-LDFLAGS	= -s -L$(BBSHOME)/src/lib -ldao -lcrypt
+CFLAGS	= -O2 -DBSD44 -pipe -fomit-frame-pointer -I$(BBSSRC)/include -I$(BBSSRC)/WD -D_BBS_UTIL_C_
+LDFLAGS	= -s -L$(BBSSRC)/lib -ldao -lcrypt
 
 # For SunOS 5.6
 #CC	= gcc

@@ -70,10 +70,10 @@ void user_display(userec *u, int real)
   clrtobot();
   sethomedir(genbuf, u->userid);
   outs("[1;33m¡´¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w[42m   ¨Ï¥ÎªÌ¸ê®Æ   [40m¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¡´\n");
-  prints("\
-  [32m­^¤å¥N¸¹¡G[37m%-16.16s[32m¼ÊºÙ¡G[37m%-20.20s[32m©Ê§O¡G[37m%-8.8s
-  [32m¯u¹ê©m¦W¡G[37m%-16.16s[32m
-  [32m¥X¥Í¤é´Á¡G[37m19%02i¦~%02i¤ë%02i¤é  [32m¢ÓMail¡G[37m%-40s\n",
+  prints("\n"\
+"  [32m­^¤å¥N¸¹¡G[37m%-16.16s[32m¼ÊºÙ¡G[37m%-20.20s[32m©Ê§O¡G[37m%-8.8s\n"
+"  [32m¯u¹ê©m¦W¡G[37m%-16.16s[32m\n"
+"  [32m¥X¥Í¤é´Á¡G[37m19%02i¦~%02i¤ë%02i¤é  [32m¢ÓMail¡G[37m%-40s\n\n",
     u->userid,u->username,sex[u->sex],
     u->realname,
     u->year, u->month, u->day, u->email); 

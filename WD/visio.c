@@ -77,16 +77,16 @@ void ochar(char c)
 #define O_XTABS 02
 #endif
 
-#ifdef LINUX
+//#ifdef LINUX
 #include <termios.h>
 
 #define stty(fd, data) tcsetattr( fd, TCSETS, data )
 #define gtty(fd, data) tcgetattr( fd, data )
 
 struct termios tty_state, tty_new;
-#else
-struct sgttyb tty_state, tty_new;
-#endif
+//#else
+//struct sgttyb tty_state, tty_new;
+//#endif
 
 #ifndef TANDEM
 #define TANDEM  0x00000001
@@ -108,28 +108,28 @@ void init_tty()
   }
   memcpy(&tty_new, &tty_state, sizeof(tty_new));
 
-#ifdef  LINUX
+//#ifdef  LINUX
 
   tty_new.c_lflag &= ~(ICANON | ECHO | ISIG);
   tcsetattr(1, TCSANOW, &tty_new);
   restore_tty();
 
-#else
+//#else
 
-  tty_new.sg_flags |= RAW;
+//  tty_new.sg_flags |= RAW;
 
-#ifdef  HP_UX
-  tty_new.sg_flags &= ~(O_HUPCL | O_XTABS | LCASE | ECHO | CRMOD);
-#else
-  tty_new.sg_flags &= ~(TANDEM | CBREAK | LCASE | ECHO | CRMOD);
-#endif
+//#ifdef  HP_UX
+//  tty_new.sg_flags &= ~(O_HUPCL | O_XTABS | LCASE | ECHO | CRMOD);
+//#else
+//  tty_new.sg_flags &= ~(TANDEM | CBREAK | LCASE | ECHO | CRMOD);
+//#endif
 
-  stty(1, &tty_new);
-#endif
+//  stty(1, &tty_new);
+//#endif
 }
 
 
-#ifdef LINUX
+//#ifdef LINUX
 reset_tty()
 {
    system("stty -raw echo");
@@ -138,17 +138,17 @@ restore_tty()
 {
    system("stty raw -echo");
 }
-#else
-void reset_tty()
-{
-  stty(1, &tty_state);
-}
-void restore_tty()
-{
-  stty(1, &tty_new);
-}
+//#else
+//void reset_tty()
+//{
+//  stty(1, &tty_state);
+//}
+//void restore_tty()
+//{
+//  stty(1, &tty_new);
+//}
 
-#endif
+//#endif
 
 
 
@@ -197,7 +197,7 @@ void restore_cursor()
 /* create : 95/03/29				 	 */
 /* update : 95/12/15				 	 */
 /*-------------------------------------------------------*/
-#include <varargs.h>
+#include <stdarg.h>
 
 #define o_ansi(x)       output(x, sizeof(x)-1)
 #define o_clear()       o_ansi("\033[;H\033[2J")
@@ -712,14 +712,12 @@ void outz(register char *msg)
 
 
 void
-prints(va_alist)
-va_dcl
+prints(char *fmt, ...)
 {
   va_list args;
-  char buff[1024], *fmt;
+  char buff[1024];
 
-  va_start(args);
-  fmt = va_arg(args, char *);
+  va_start(args,fmt);
   vsprintf(buff, fmt, args);
   va_end(args);
   outs(buff);

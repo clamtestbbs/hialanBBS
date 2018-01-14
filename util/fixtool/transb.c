@@ -58,13 +58,13 @@ main()
   	i++;
 	if(!bh.brdname[0]) continue;
 	if(invalid_brdname(bh.brdname)) continue;
-	printf("
-=====================================================
-brd num   : %d
-boardname : %s
-title     : %s
-totalvisit: %d
-=====================================================\n"
+	printf("\n"
+"=====================================================\n"
+"brd num   : %d\n"
+"boardname : %s\n"
+"title     : %s\n"
+"totalvisit: %d\n"
+"=====================================================\n"
 ,i,bh.brdname,bh.title,bh.totalvisit);
         memcpy(new.brdname,bh.brdname,IDLEN+1);
         memcpy(new.title,bh.title,BTLEN + 1);

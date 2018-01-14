@@ -35,16 +35,16 @@ TOOL =	bbsmail bfinger clrdir expire showb rmtusr mailpost\
 #	allboardfix bet_open
 
 all: 	$(TOOL)
-	@cd fixtool;make all
-	@cd statool;make all
+##	@cd fixtool;make all
+##	@cd statool;make all
 
 
 install:$(TOOL)
 	strip $(TOOL)
-	chown bbs.bbs $(TOOL)
+	chown bbs:bbs $(TOOL)
 	cp -fp $(TOOL) $(BBSHOME)/bin
-	@cd fixtool;make install
-	@cd statool;make install
+##	@cd fixtool;make install
+##	@cd statool;make install
 
 clean:
 	rm -fr $(TOOL) *.o *.BAK *.log *~

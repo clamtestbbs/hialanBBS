@@ -7,7 +7,7 @@
 /*-------------------------------------------------------*/
 
 #include "bbs.h"
-#include <varargs.h>
+#include <stdarg.h>
 
 
 void setbdir(char *buf, char *boardname)
@@ -239,18 +239,19 @@ Cdate(clock)
 }
 
 
-void pressanykey_old(va_alist)
-  va_dcl
+void pressanykey_old(char *fmt, ...)
 {
   va_list ap;
-  char msg[128], *fmt;
+  char msg[128];
   int ch;
 
   msg[0]=0;
-  va_start(ap);
-  fmt = va_arg(ap, char *);
-  if(fmt) vsprintf(msg, fmt, ap);
+
+  va_start(ap, fmt);
+  if(fmt) 
+    vsprintf(msg, fmt, ap);
   va_end(ap);
+
   if (msg[0])
   {
     move(b_lines, 0); clrtoeol();
@@ -275,18 +276,17 @@ void pressanykey_old(va_alist)
   refresh();
 }
 
-void pressanykey(va_alist)
-  va_dcl
+void pressanykey(char *fmt, ...)
 {
   va_list ap;
-  char msg[128], *fmt;
+  char msg[128];
   int ch;
   screenline* screen = (screenline *)calloc(t_lines, sizeof(screenline));
 
   msg[0]=0;
-  va_start(ap);
-  fmt = va_arg(ap, char *);
-  if(fmt) vsprintf(msg, fmt, ap);
+  va_start(ap,fmt);
+  if(fmt) 
+    vsprintf(msg, fmt, ap);
   va_end(ap);
   
   vs_save(screen);
@@ -964,16 +964,14 @@ change_bp(y, title, desc)
 
 #define FN_GAMELOG "etc/game.log"
 
-int game_log(va_alist)
-  va_dcl
+int game_log(char *game, ...)
 {
   va_list ap;
-  char *game, *fmt, desc[128];
+  char *fmt, desc[128];
   FILE *fp;
   time_t now=time(0);
   
-  va_start(ap);
-    game = va_arg(ap, char *);
+  va_start(ap,game);
     fmt = va_arg(ap, char *);
     vsprintf(desc, fmt, ap);
   va_end(ap);

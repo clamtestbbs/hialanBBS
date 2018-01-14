@@ -1666,11 +1666,11 @@ void talkreply()
   currstat = XMODE;             /* Á×§K¥X²{°Êµe */
 
   clear();
-  outs("\n
-       (Y) Åý§Ú­Ì talk §a¡I     (A) §Ú²{¦b«Ü¦£¡A½Ðµ¥¤@·|¨à¦A call §Ú
-       (N) §Ú²{¦b¤£·Q talk      (B) ¹ï¤£°_¡A§Ú¦³¨Æ±¡¤£¯à¸ò§A talk
-       (C) ½Ð¤£­n§n§Ú¦n¶Ü¡H     (D) ¦³¨Æ¶Ü¡H½Ð¥ý¨Ó«H
-       (E) [1;33m§Ú¦Û¤v¿é¤J²z¥Ñ¦n¤F...[m\n\n");
+  outs("\n\n"\
+"       (Y) Åý§Ú­Ì talk §a¡I     (A) §Ú²{¦b«Ü¦£¡A½Ðµ¥¤@·|¨à¦A call §Ú\n"
+"       (N) §Ú²{¦b¤£·Q talk      (B) ¹ï¤£°_¡A§Ú¦³¨Æ±¡¤£¯à¸ò§A talk\n"
+"       (C) ½Ð¤£­n§n§Ú¦n¶Ü¡H     (D) ¦³¨Æ¶Ü¡H½Ð¥ý¨Ó«H\n"
+"       (E) [1;33m§Ú¦Û¤v¿é¤J²z¥Ñ¦n¤F...[m\n\n");
 
   getuser(uip->userid);
   currutmp->msgs[0].last_pid = uip->pid;

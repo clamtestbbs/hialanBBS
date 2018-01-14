@@ -33,12 +33,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-#if	defined(__linux__) && (__GLIBC__ != 2)
-#include <bsd/sgtty.h>
-#else
-#include <sgtty.h>
-#endif
-
+#include <termios.h>
 
 #ifdef  SYSV
 

@@ -11,7 +11,7 @@
 extern int cmpuname();
 extern cmpfilename();
 extern char currdirect[];
-extern struct one_key list_comm[];
+//extern struct one_key list_comm[];
 extern int last_line;
 extern char msg_cc[];
 static void listtitle();

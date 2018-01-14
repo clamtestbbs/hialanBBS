@@ -476,3 +476,13 @@ typedef struct
   int (*func) ();
 }      KeyFunc;
 
+
+
+
+/* ----------------menu.c (test --*/
+
+typedef struct commands {
+    int (*cmdfunc)();
+    int level;
+    char *desc;                   /* next/key/description */
+} commands;

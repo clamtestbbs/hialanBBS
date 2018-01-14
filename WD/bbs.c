@@ -803,12 +803,12 @@ int do_post ()
         move (7, 0);
         update_data ();
 
-        prints ("\
-              [1;36m¡i[37m­p ºâ ½Z ¹S[36m¡j\n
-              [37m ³o¬O±zªº[33m²Ä %d ½g[37m¤å³¹¡C
-              [36m¡i¶O  ®É¡j[33m %d [37m¤À[33m % d [37m¬í¡C
-              [36m¡i½Z  ¹S¡j[33m %d [37m(ª÷¹ô)
-              [36m¡i§N  «×¡j[33m %d [37m ÂI",
+        prints ("\n"\
+"              [1;36m¡i[37m­p ºâ ½Z ¹S[36m¡j\n\n"\
+"              [37m ³o¬O±zªº[33m²Ä %d ½g[37m¤å³¹¡C\n"\
+"              [36m¡i¶O  ®É¡j[33m %d [37m¤À[33m % d [37m¬í¡C\n"\
+"              [36m¡i½Z  ¹S¡j[33m %d [37m(ª÷¹ô)\n"
+"              [36m¡i§N  «×¡j[33m %d [37m ÂI\n",
         ++cuser.numposts, spendtime / 60, spendtime % 60, money, cold+1);
         if(cold == 9)
 	{
@@ -2099,9 +2099,9 @@ board_edit ()
       {
         clrchyiuan(1, 15);
         move(3, 0);
-        prints("\
-¥Ø«e¬ÝªOªº¤å³¹¤W­­¬° %-5d ½g
-          «O¯d®É¶¡¬° %-5d ¤Ñ\n",bp.maxpost,bp.maxtime);
+        prints("\n"\
+"¥Ø«e¬ÝªOªº¤å³¹¤W­­¬° %-5d ½g\n"
+"          «O¯d®É¶¡¬° %-5d ¤Ñ\n\n",bp.maxpost,bp.maxtime);
         outs("¤@­Ó³æ¦ì¬°[1;32m¤@¦Ê½g¤å³¹[m©Î¬O[1;32m¤T¤Q¤Ñ[m , ¤@­Ó³æ¦ì»Ý [1;33m3000 ª÷¹ô[m");
         getdata(7, 0, "§A­n (1)¶R¤å³¹¤W­­ (2)¶R«O¦s®É¶¡", buf, 2, DOECHO, 0);
         if (buf[0] == '1' || buf[0] == '2')

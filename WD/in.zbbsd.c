@@ -1490,7 +1490,7 @@ getterminaltype()
 #include <sys/types.h>
 #include <grp.h>
 #include <sys/resource.h>
-#include <utmp.h>
+#include <utmpx.h>
 
 #ifndef _PATH_UTMP
 #define _PATH_UTMP      "/etc/utmp"
