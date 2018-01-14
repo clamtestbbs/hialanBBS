@@ -1,7 +1,7 @@
-src/innbbsd/.LOCK
-src/innbbsd/.dir
-src/util/.PASSWDS
-src/util/.temp
+innbbsd/.LOCK
+innbbsd/.dir
+util/.PASSWDS
+util/.temp
 .last_mbbsd
 *~
 *.old
